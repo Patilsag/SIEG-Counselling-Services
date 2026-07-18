@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/sagarpatil/Downloads/**)",
+      "Bash(ffprobe -v quiet -show_format -show_streams -print_format json \"/Users/sagarpatil/Downloads/upscaled-video \\(2\\).mp4\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); s=d['streams'][0]; print\\(s['width'],'x',s['height'], 'dur', d['format']['duration'], 'size', d['format']['size']\\)\")"
+    ]
+  }
+}
