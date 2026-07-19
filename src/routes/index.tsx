@@ -16,6 +16,7 @@ function track(event: string, params?: Record<string, string>) {
 }
 
 const GUIDE_PAGES = [
+  { title: "German Grade Converter", href: "/tools/german-grade-calculator" },
   { title: "APS Certificate Guide", href: "/guides/aps-certificate" },
   { title: "Blocked Account Guide", href: "/guides/blocked-account" },
   { title: "Uni-assist Guide", href: "/guides/uni-assist" },
@@ -915,6 +916,7 @@ function Nav() {
             ["Stories", "#stories"],
             ["About", "#founder"],
             ["Guides", "#contact"],
+            ["Grade tool", "/tools/german-grade-calculator"],
           ].map(([l, h]) => (
             <a key={l} href={h} className={`text-sm font-medium transition ${scrolled ? "text-[var(--ink-2)] hover:text-[var(--navy-700)]" : "text-white/85 hover:text-white"}`}>
               {l}
@@ -931,7 +933,7 @@ function Nav() {
       {open && (
         <div className="border-t border-border bg-white shadow-[var(--shadow-md)] md:hidden">
           <div className="flex flex-col p-2">
-            {[["Roadmap","#roadmap"],["Services","#services"],["Stories","#stories"],["About","#founder"],["Guides","#contact"]].map(([l,h]) => (
+            {[["Roadmap","#roadmap"],["Services","#services"],["Stories","#stories"],["About","#founder"],["Guides","#contact"],["Grade tool","/tools/german-grade-calculator"]].map(([l,h]) => (
               <a key={l} href={h} onClick={() => setOpen(false)} className="border-b border-border px-4 py-3 text-sm text-[var(--ink-2)]">{l}</a>
             ))}
             <a href="#contact" onClick={() => setOpen(false)} className="btn-gold mx-4 my-3 rounded-full px-5 py-2.5 text-center text-sm">Book a free call</a>

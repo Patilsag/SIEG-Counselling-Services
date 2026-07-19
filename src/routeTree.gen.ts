@@ -13,6 +13,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ImprintRouteImport } from './routes/imprint'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsGermanGradeCalculatorRouteImport } from './routes/tools.german-grade-calculator'
 import { Route as GuidesWorkStudentRouteImport } from './routes/guides.work-student'
 import { Route as GuidesUniAssistRouteImport } from './routes/guides.uni-assist'
 import { Route as GuidesStudentVisaRouteImport } from './routes/guides.student-visa'
@@ -40,6 +41,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsGermanGradeCalculatorRoute =
+  ToolsGermanGradeCalculatorRouteImport.update({
+    id: '/tools/german-grade-calculator',
+    path: '/tools/german-grade-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GuidesWorkStudentRoute = GuidesWorkStudentRouteImport.update({
   id: '/guides/work-student',
   path: '/guides/work-student',
@@ -83,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/guides/student-visa': typeof GuidesStudentVisaRoute
   '/guides/uni-assist': typeof GuidesUniAssistRoute
   '/guides/work-student': typeof GuidesWorkStudentRoute
+  '/tools/german-grade-calculator': typeof ToolsGermanGradeCalculatorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -95,6 +103,7 @@ export interface FileRoutesByTo {
   '/guides/student-visa': typeof GuidesStudentVisaRoute
   '/guides/uni-assist': typeof GuidesUniAssistRoute
   '/guides/work-student': typeof GuidesWorkStudentRoute
+  '/tools/german-grade-calculator': typeof ToolsGermanGradeCalculatorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -108,6 +117,7 @@ export interface FileRoutesById {
   '/guides/student-visa': typeof GuidesStudentVisaRoute
   '/guides/uni-assist': typeof GuidesUniAssistRoute
   '/guides/work-student': typeof GuidesWorkStudentRoute
+  '/tools/german-grade-calculator': typeof ToolsGermanGradeCalculatorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/guides/student-visa'
     | '/guides/uni-assist'
     | '/guides/work-student'
+    | '/tools/german-grade-calculator'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -134,6 +145,7 @@ export interface FileRouteTypes {
     | '/guides/student-visa'
     | '/guides/uni-assist'
     | '/guides/work-student'
+    | '/tools/german-grade-calculator'
   id:
     | '__root__'
     | '/'
@@ -146,6 +158,7 @@ export interface FileRouteTypes {
     | '/guides/student-visa'
     | '/guides/uni-assist'
     | '/guides/work-student'
+    | '/tools/german-grade-calculator'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -159,6 +172,7 @@ export interface RootRouteChildren {
   GuidesStudentVisaRoute: typeof GuidesStudentVisaRoute
   GuidesUniAssistRoute: typeof GuidesUniAssistRoute
   GuidesWorkStudentRoute: typeof GuidesWorkStudentRoute
+  ToolsGermanGradeCalculatorRoute: typeof ToolsGermanGradeCalculatorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -189,6 +203,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/german-grade-calculator': {
+      id: '/tools/german-grade-calculator'
+      path: '/tools/german-grade-calculator'
+      fullPath: '/tools/german-grade-calculator'
+      preLoaderRoute: typeof ToolsGermanGradeCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides/work-student': {
@@ -247,6 +268,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuidesStudentVisaRoute: GuidesStudentVisaRoute,
   GuidesUniAssistRoute: GuidesUniAssistRoute,
   GuidesWorkStudentRoute: GuidesWorkStudentRoute,
+  ToolsGermanGradeCalculatorRoute: ToolsGermanGradeCalculatorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

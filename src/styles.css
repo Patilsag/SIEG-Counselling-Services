@@ -64,6 +64,11 @@
   --gold-soft: oklch(0.87 0.075 85);
   --violet: oklch(0.58 0.16 300);
 
+  /* Result bands (grade converter and any future scored output) */
+  --band-good: oklch(0.72 0.15 150);
+  --band-warn: oklch(0.75 0.15 65);
+  --band-bad: oklch(0.65 0.19 25);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.15 0.03 260);
   --card: oklch(1 0 0);
